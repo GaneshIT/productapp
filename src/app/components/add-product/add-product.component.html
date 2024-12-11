@@ -1,0 +1,30 @@
+<h1>
+    Product Entry
+</h1>
+<hr/>
+<form>
+    <div>
+        <label>Product Id</label>
+        <input type="text" [(ngModel)]="productData.id" name="id" />
+    </div>
+    <div>
+        <label>Product Name</label>
+        <input type="text" [(ngModel)]="productData.name" name="name" />
+    </div>
+    <div>
+        <label>Product Type</label>
+        <input type="text" [(ngModel)]="productData.producttype" name="type" />
+    </div>
+    <div>
+        <label>Product Desc</label>
+        <input type="text" [(ngModel)]="productData.description" name="desc" />
+    </div>
+    <div>
+        <label>Product Price</label>
+        <input type="text" [(ngModel)]="productData.price" name="price" />
+    </div>
+    <input type="button" value="Save" (click)="addProduct()" />
+    <input type="button" value="Reset" (click)="resetProuct()" />
+</form>
+
+<app-productlist [productlistdata]="productlist"></app-productlist>
