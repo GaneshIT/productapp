@@ -1,5 +1,4 @@
-<h1>Product List Loading....</h1>
-<hr />
+<h3>Product List <span class="alert alert-danger" style="margin-left: 3%;font-size: small;" *ngIf="showMsg">Product deleted successfully..!</span></h3>
 <!-- <div class="row">
     <div *ngFor="let item of productlistdata">
         <div class="col-md-4" class="card" style="width: 18rem;">
@@ -12,7 +11,8 @@
           </div>
     </div>
 </div> -->
-<table>
+<hr/>
+<table class="table" *ngIf="productlistdata.length!=0">
     <thead>
         <tr>
             <th>Id</th>
@@ -31,18 +31,35 @@
             <td [style.background-color]="item.productType |mypipe">{{item.productType}}</td>
             <td>{{item.description}}</td>
             <td>{{item.price}}</td>
-            <td><button (click)="editProduct(item.id)">Edit</button></td>
-            <td><button (click)="deleteProduct(item.id)">Delete</button></td>
+            <td><button class="btn btn-primary" (click)="editProduct(item.id)">Edit</button></td>
+            <td><button class="btn btn-danger" (click)="confirmTodeleteProduct(item.id)" data-toggle="modal" data-target="#deleteModal">Delete</button></td>
         </tr>
     </tbody>
 </table>
+<h3 *ngIf="productlistdata.length==0" style="margin-left: 50%;">No data found</h3>
+<hr/>
 <!-- <h1 [style.background-color]="'Computer'|mypipe">Computer</h1>
-<h1 [style.background-color]="'Mobile'|mypipe">Computer</h1> -->\\\
-xs,sm,md,lg,xl
+<h1 [style.background-color]="'Mobile'|mypipe">Computer</h1> -->
+<!-- xs,sm,md,lg,xl -->
 
-<div class="row">
+<!-- <div class="row">
     <div class="col-md-3" style="background-color: aqua;">product 1</div>
     <div class="col-md-4" style="background-color: rgb(105, 176, 176);">product 2</div>
     <div class="col-md-5" style="background-color: rgb(57, 62, 225);">product 3</div>
-</div>
+</div> -->
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" #deleteModal>
+    <div class="modal-dialog">
+      <div class="modal-content">
+    
+        <div class="modal-body">
+          Are you sure want to delete product?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" #deleteButton data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="deleteButton" (click)="deleteProduct()">Confirm to delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
