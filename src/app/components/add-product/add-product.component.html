@@ -23,7 +23,8 @@
         <label>Product Price</label>
         <input type="text" [(ngModel)]="productData.price" name="price" />
     </div>
-    <input type="button" value="Save" (click)="addProduct()" />
+    <input type="button" *ngIf="!updateBtn" value="Save" (click)="addProduct()" />
+    <input type="button" *ngIf="updateBtn" value="Update" (click)="updateProduct()" />
     <input type="button" value="Reset" (click)="resetProuct()" />
 </form>
 

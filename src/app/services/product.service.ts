@@ -12,6 +12,12 @@ export class ProductService {
   addProduct(product:any):Observable<any>{
     return this.http.post(baseUrl+'/Create',product);
       }
+  updateProduct(product:any,id:any):Observable<any>{
+        return this.http.put(baseUrl+'/Update?id='+id,product);
+          }
+  deleteProduct(id:number):Observable<any>{
+            return this.http.delete(baseUrl+'/Delete?id='+id);
+              }
   getAll():Observable<Product[]>{
     return this.http.get<Product[]>(baseUrl+'/GetProducts');
   }

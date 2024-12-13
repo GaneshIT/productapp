@@ -10,6 +10,7 @@ export class AddProductComponent implements OnInit {
   constructor(private productService:ProductService){
   }
   acno:number=12;
+  updateBtn:boolean=true;
   productData:Product={
     id:0,
     name:'',
@@ -43,6 +44,18 @@ export class AddProductComponent implements OnInit {
     this.name='';
     this.type='';
     this.price=0;
+  }
+  updateProduct(){
+    this.productService.updateProduct(this.productData,this.productData.id).subscribe(
+      {
+        next:(response)=>{
+          this.updateBtn=false;
+        },
+        error:(err)=>{
+
+        }
+      }
+    )
   }
   getAll(){
     this.productService.getAll().subscribe(

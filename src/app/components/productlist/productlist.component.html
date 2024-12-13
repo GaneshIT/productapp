@@ -1,5 +1,17 @@
 <h1>Product List Loading....</h1>
 <hr />
+<!-- <div class="row">
+    <div *ngFor="let item of productlistdata">
+        <div class="col-md-4" class="card" style="width: 18rem;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Au5xTZvTpK6nqSHxY7P39i7SKOdLTl8EbQ&s" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{item.name}}</h5>
+              <p class="card-text">{{item.description}}</p>
+              <a href="#" class="btn btn-primary">Add to cart</a>
+            </div>
+          </div>
+    </div>
+</div> -->
 <table>
     <thead>
         <tr>
@@ -16,7 +28,7 @@
         <tr *ngFor="let item of productlistdata">
             <td>{{item.id}}</td>
             <td>{{item.name}}</td>
-            <td>{{item.productType}}</td>
+            <td [style.background-color]="item.productType |mypipe">{{item.productType}}</td>
             <td>{{item.description}}</td>
             <td>{{item.price}}</td>
             <td><button (click)="editProduct(item.id)">Edit</button></td>
@@ -24,3 +36,13 @@
         </tr>
     </tbody>
 </table>
+<!-- <h1 [style.background-color]="'Computer'|mypipe">Computer</h1>
+<h1 [style.background-color]="'Mobile'|mypipe">Computer</h1> -->\\\
+xs,sm,md,lg,xl
+
+<div class="row">
+    <div class="col-md-3" style="background-color: aqua;">product 1</div>
+    <div class="col-md-4" style="background-color: rgb(105, 176, 176);">product 2</div>
+    <div class="col-md-5" style="background-color: rgb(57, 62, 225);">product 3</div>
+</div>
+
